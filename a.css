@@ -1,6 +1,5 @@
 body {
-    background: #000000;
-    color: white;
+    background: #efefef;
     margin: 0px;
 }
 
@@ -10,7 +9,15 @@ a {
     /*取消a标签的下划线*/
     text-decoration: none;
 }
-
+hr{
+    height:0px;
+    border:none;
+    border-top: 1px solid #DEDEDE; 
+}
+*{
+    margin:0;
+    padding:0;
+}
 .clearfix::after {
     content: '';
     display: block;
@@ -83,7 +90,6 @@ a {
 .banner {
     height: 515px;
     background-image: url(./img/Mac-desk.jpg);
-    border: 1px solid red;
     background-position: center center;
     background-size: cover;
 }
@@ -91,4 +97,79 @@ a {
 .banner .mask {
     height: 515px;
     background-color: rgb(0, 0, 0, 0.8);
+}
+.userCard{
+    /* 小于940px时，自适应；如果写width:940px，则不会自适应*/
+    max-width: 940px;
+    margin-left:auto;
+    margin-right: auto;
+    background-color: #ffffff;
+}
+.userCard .welcome{
+   background: #e6686a;
+   color:white; 
+   display: inline-block;
+   padding:4px 16px;
+   line-height: 22px;
+   position: relative;
+}
+.userCard .welcome .triangle{
+        display: block;
+        border:10px solid transparent;
+        width:0px;
+        border-left-color:#e6686a;
+        border-top-width:0px;
+        position: absolute;
+        left:4px;
+        top: 100%;
+}
+.userCard .picture{
+    float:left;
+}
+.userCard .text h1{
+    margin-top:18px;
+}
+.userCard .text hr{
+    margin:20px 0;
+}
+.userCard .text{
+    float: left;
+    margin-left:65px; 
+    width:470px;
+}
+.userCard .pictureAndText{
+    padding:50px
+}
+
+.userCard dl dt,.userCard dl dd{
+    float: left;
+    padding:5px 0;
+}
+.userCard dl dt{
+    width:30%;
+    font-weight: bold;
+}
+.userCard dl dd{
+    width:70%;
+    color:#9da0a7;
+}
+.userCard footer.media{
+    background: #e6686a;
+    text-align: center;
+}
+.userCard footer.media > a{
+    display: inline-block;
+    width:50px;
+    line-height: 30px;
+    padding:10px 0;
+    border-radius: 50%;
+    margin:16px 16px;
+}
+.userCard footer.media > a:hover{
+    background: #cf5d5f;
+}
+.userCard svg{
+    width:30px;
+    height: 30px;
+    vertical-align: top;
 }
