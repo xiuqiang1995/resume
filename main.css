@@ -9,21 +9,32 @@ a {
     /*取消a标签的下划线*/
     text-decoration: none;
 }
-hr{
-    height:0px;
-    border:none;
-    border-top: 1px solid #DEDEDE; 
+
+hr {
+    height: 0px;
+    border: none;
+    border-top: 1px solid #DEDEDE;
 }
-*{
-    margin:0;
-    padding:0;
+
+* {
+    margin: 0;
+    padding: 0;
 }
-ul,ol{
+
+ul,
+ol {
     list-style: none;
 }
-h1,h2,h3,h4,h5,h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: normal;
 }
+
 .clearfix::after {
     content: '';
     display: block;
@@ -37,6 +48,16 @@ h1,h2,h3,h4,h5,h6{
     /* 脱离文档流 */
     position: fixed;
     width: 100%;
+    transition: all 0.5s;
+    color: #b7b7b7;
+}
+
+.topNavBar.sticky {
+    background: #fff;
+    padding: 10px 0px;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: #3d4451;
 }
 
 .topNavBar-inner {
@@ -61,7 +82,7 @@ h1,h2,h3,h4,h5,h6{
 
 .topNavBar nav>ul>li>a {
     font-size: 12px;
-    color: #b7b7b7;
+    color: inherit;
     font-weight: bold;
     border-top: 3px solid transparent;
     /* 解决hover事件触发时，页面抖动问题 */
@@ -104,110 +125,128 @@ h1,h2,h3,h4,h5,h6{
     height: 515px;
     background-color: rgb(0, 0, 0, 0.8);
 }
-.userCard{
+
+.userCard {
     /* 小于940px时，自适应；如果写width:940px，则不会自适应*/
     max-width: 940px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-}
-.userCard .welcome{
-   background: #e6686a;
-   color:white; 
-   display: inline-block;
-   padding:4px 16px;
-   line-height: 22px;
-   position: relative;
-}
-.userCard .welcome .triangle{
-        display: block;
-        border:10px solid transparent;
-        width:0px;
-        border-left-color:#e6686a;
-        border-top-width:0px;
-        position: absolute;
-        left:4px;
-        top: 100%;
-}
-.userCard .picture{
-    float:left;
-}
-.userCard .text h1{
-    margin-top:18px;
-}
-.userCard .text hr{
-    margin:20px 0;
-}
-.userCard .text{
-    float: left;
-    margin-left:65px; 
-    width:470px;
-}
-.userCard .pictureAndText{
-    padding:50px
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-.userCard dl dt,.userCard dl dd{
-    float: left;
-    padding:9px 0;
+.userCard .welcome {
+    background: #e6686a;
+    color: white;
+    display: inline-block;
+    padding: 4px 16px;
+    line-height: 22px;
+    position: relative;
 }
-.userCard dl dt{
-    width:30%;
+
+.userCard .welcome .triangle {
+    display: block;
+    border: 10px solid transparent;
+    width: 0px;
+    border-left-color: #e6686a;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.userCard .picture {
+    float: left;
+}
+
+.userCard .text h1 {
+    margin-top: 18px;
+}
+
+.userCard .text hr {
+    margin: 20px 0;
+}
+
+.userCard .text {
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+
+.userCard .pictureAndText {
+    padding: 50px
+}
+
+.userCard dl dt,
+.userCard dl dd {
+    float: left;
+    padding: 9px 0;
+}
+
+.userCard dl dt {
+    width: 30%;
     font-weight: bold;
 }
-.userCard dl dd{
-    width:70%;
-    color:#9da0a7;
+
+.userCard dl dd {
+    width: 70%;
+    color: #9da0a7;
 }
-.userCard footer.media{
+
+.userCard footer.media {
     background: #e6686a;
     text-align: center;
 }
-.userCard footer.media > a{
+
+.userCard footer.media>a {
     display: inline-block;
-    width:50px;
+    width: 50px;
     line-height: 30px;
-    padding:10px 0;
+    padding: 10px 0;
     border-radius: 50%;
-    margin:16px 16px;
+    margin: 16px 16px;
 }
-.userCard footer.media > a:hover{
+
+.userCard footer.media>a:hover {
     background: #cf5d5f;
 }
-.userCard svg{
-    width:30px;
+
+.userCard svg {
+    width: 30px;
     height: 30px;
     vertical-align: top;
 }
-body > main{
+
+body>main {
     margin-top: -340px;
 }
-body > main .downloadResume{
+
+body>main .downloadResume {
     font-size: 14px;
     line-height: 16px;
-    padding:21px 55px;
+    padding: 21px 55px;
     border: 1px solid #CDCFD1;
     background: #EFEFEF;
     display: inline-block;
     border-radius: 6px;
-    color:#3d4451;
+    color: #3d4451;
     font-weight: bold;
-    margin:32px 0;
+    margin: 32px 0;
     /* 给hover添加过渡效果 */
     transition: 0.2s;
 }
-body > main .downloadResume-wrapper{
+
+body>main .downloadResume-wrapper {
     text-align: center;
 }
 
-body > main .downloadResume:hover{
-    box-shadow: 0px 4px 13px 0px rgba(0,0,0,0.2);
+body>main .downloadResume:hover {
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
 }
 
-.selfIntroduction{
+.selfIntroduction {
     max-width: 940px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
     font-family: kai;
@@ -216,111 +255,135 @@ body > main .downloadResume:hover{
 }
 
 section.skills,
-section.portfolio{
+section.portfolio {
     max-width: 940px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 60px;
 }
-section.skills > h2,
-section.portfolio > h2{
+
+section.skills>h2,
+section.portfolio>h2 {
     text-align: center;
-    color:#3d4451;
-    font-size: 34px; 
-    line-height: 1.2;  
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
     font-weight: 600;
 }
-section.skills > h3{
+
+section.skills>h3 {
     font-style: 14px;
     line-height: 1.1;
     padding-right: 40px;
 }
-section.skills >ol{
+
+section.skills>ol {
     background: #fff;
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-    padding:42px 50px 10px;
-    margin-top:30px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    padding: 42px 50px 10px;
+    margin-top: 30px;
 }
-section.skills >ol>li{
-    float:left;
-    width:48%;
+
+section.skills>ol>li {
+    float: left;
+    width: 48%;
     box-sizing: border-box;
 }
+
+
 /* :nth-child() - 伪类； ::before - 伪元素 */
-section.skills > ol > li:nth-child(even){
-    float:right;
+
+section.skills>ol>li:nth-child(even) {
+    float: right;
 }
-section.skills .progressBar{
+
+section.skills .progressBar {
     height: 5px;
     background: #FAE1E1;
     border-radius: 2px;
-    margin:4px 0px 40px;
+    margin: 4px 0px 40px;
 }
-section.skills .progressBar .progress{
+
+section.skills .progressBar .progress {
     /* 外面高度确定了，里面这个进度条可以用100% */
     height: 100%;
     background: #E6686A;
-    width:50%;
+    width: 50%;
     border-radius: 2px;
 }
-section.portfolio{
+
+section.portfolio {
     text-align: center;
     margin-bottom: 100px;
 }
-section.portfolio > nav{
+
+section.portfolio>nav {
     text-align: center;
 }
-section.portfolio > nav > ol{
-    margin:0 auto;
+
+section.portfolio>nav>ol {
+    margin: 0 auto;
     /* 使用dispaly:inline-block以后，元素会没有缘由的上浮一点点距离 */
     display: inline-block;
     /* 这时候就耀使用下面这行代码消除这个上浮的效果 */
     vertical-align: top;
     /* vertical-align: top; 一般和 display: inline-block; 配套使用*/
 }
-section.portfolio > nav > ol > li{
-    float:left;
-    margin-left:40px;
+
+section.portfolio>nav>ol>li {
+    float: left;
+    margin-left: 40px;
     cursor: pointer;
 }
-section.portfolio > nav > ol > li:first-child{
-    margin-left:0;
+
+section.portfolio>nav>ol>li:first-child {
+    margin-left: 0;
 }
-section.portfolio > nav{
+
+section.portfolio>nav {
     display: inline-block;
     vertical-align: top;
     margin-top: 32px;
 }
-section.portfolio > nav .bar{
-    height:5px;
+
+section.portfolio>nav .bar {
+    height: 5px;
     background: #fff;
     margin-top: 5px;
     margin-bottom: 20px;
     border-radius: 2px;
 }
-section.portfolio > nav .bar-inner{
-    height:100%;
+
+section.portfolio>nav .bar-inner {
+    height: 100%;
     background: #E6686A;
     border-radius: 2px;
     transition: 0.3s;
 }
-section.portfolio > nav .bar.state-1 .bar-inner{
-    margin-left:0;
-    width:50px;
+
+section.portfolio>nav .bar.state-1 .bar-inner {
+    margin-left: 0;
+    width: 50px;
 }
-section.portfolio > nav .bar.state-2 .bar-inner{
-    margin-left:65px;
-    width:50px;
+
+section.portfolio>nav .bar.state-2 .bar-inner {
+    margin-left: 65px;
+    width: 50px;
 }
-section.portfolio > nav .bar.state-3 .bar-inner{
-    margin-left:140px;
-    width:96px;
+
+section.portfolio>nav .bar.state-3 .bar-inner {
+    margin-left: 140px;
+    width: 96px;
 }
+
+
 /* 绝对定位的元素不在文档流里。div的高度需要手动指定 */
-section.portfolio .works{
+
+section.portfolio .works {
     position: relative;
 }
-section.portfolio .works  .big,
-section.portfolio .works  .small{
+
+section.portfolio .works .big,
+section.portfolio .works .small {
     position: absolute;
 }
