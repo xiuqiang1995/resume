@@ -78,6 +78,7 @@ h6 {
     float: left;
     margin-left: 17px;
     margin-right: 17px;
+    position: relative;
 }
 
 .topNavBar nav>ul>li>a {
@@ -90,10 +91,57 @@ h6 {
     padding: 5px 0;
     /* 解决a标签和li标签高度不一致问题 */
     display: block;
+    position: relative;
 }
 
-.topNavBar nav>ul>li>a:hover {
-    border-bottom: 3px solid #e06567;
+.topNavBar nav>ul>li.active>a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: menuSlide 0.3s;
+}
+
+@keyframes menuSlide {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.topNavBar .submenu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: #fff;
+    color: #3d4451;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}
+
+.topNavBar li.active>.submenu {
+    display: block;
+    animation: submenuSlide .3s;
+}
+
+@keyframes submenuSlide {
+    0% {
+        margin-right: 100%;
+    }
+    100% {
+        margin-right: 0%
+    }
+}
+
+.topNavBar .submenu>li {
+    white-space: nowrap;
+    padding: 5px 10px;
 }
 
 
