@@ -47,7 +47,14 @@
                 <ul class="clearfix">
                     <li><a href="#siteAbout">ABOUT</a></li>
                     <li><a href="#siteSkills">SKILLS</a></li>
-                    <li><a href="#sitePortfolio">PRICING</a></li>
+                    <li>
+                        <a href="#sitePortfolio">PRICING</a>
+                        <ul class='submenu'>
+                            <li>Portfolio1</li>
+                            <li>Portfolio2</li>
+                            <li>Portfolio3</li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="#">BLOG</a>
                         <ul class='submenu'>
@@ -68,7 +75,7 @@
         <div class="mask"></div>
     </div>
     <main>
-        <div id="siteAbout" class="userCard">
+        <div data-main id="siteAbout" class="userCard">
             <div class="pictureAndText clearfix">
                 <div class="picture">
                     <img src="./img/head.jpg" width="299" height="311" alt="头像">
@@ -119,7 +126,7 @@
 
     </main>
     <!-- section 章节-->
-    <section id="siteSkills" class="skills">
+    <section data-main id="siteSkills" class="skills">
         <h2>Professional Skills</h2>
         <ol class="clearfix">
             <li>
@@ -184,7 +191,7 @@
             </li>
         </ol>
     </section>
-    <section id='sitePortfolio' class="portfolio">
+    <section data-main id='sitePortfolio' class="portfolio">
         <!-- 作品集 -->
         <h2>Portfolio</h2>
         <nav>
@@ -224,11 +231,43 @@
     </section>
     <script src="./Tween.js"></script>
     <script>
+        //页面未加载出来时的黑色圆圈动画
         setTimeout(function() {
-            siteWelcome.classList.remove('active');
+                siteWelcome.classList.remove('active');
+            }, 1000)
+            //data-mian 上移动画
+        let specialTags = document.querySelectorAll('[data-main]');
+        for (let i = 0; i < specialTags.length; i++) {
+            specialTags[i].classList.add('offset');
+        }
+        setTimeout(function() {
+            currentHighLight()
         }, 1000)
+
+        //高亮当前元素
         window.onscroll = function() {
             window.scrollY > 0 ? topNavBar.classList.add('sticky') : topNavBar.classList.remove('sticky');
+            currentHighLight()
+        }
+
+        function currentHighLight() {
+            //查询包含data-main属性的任意标签
+            let specialTags = document.querySelectorAll('[data-main]');
+            let minIndex = 0;
+            for (let i = 1; i < specialTags.length; i++) {
+                if (Math.abs(specialTags[i].offsetTop - window.scrollY) < Math.abs(specialTags[minIndex].offsetTop - window.scrollY)) {
+                    minIndex = i;
+                }
+            }
+            specialTags[minIndex].classList.remove('offset');
+            let id = specialTags[minIndex].id;
+            let a = document.querySelector('a[href="#' + id + '"]');
+            let li = a.parentNode;
+            let childrens = li.parentNode.children;
+            for (let index = 0; index < childrens.length; index++) {
+                childrens[index].classList.remove('highLight');
+            }
+            li.classList.add('highLight')
         }
         let liTags = document.querySelectorAll('nav.menu > ul > li');
         for (let i = 0; i < liTags.length; i++) {
@@ -274,4 +313,4 @@
     </script>
 </body>
 
-</html>
+</html>v
