@@ -379,7 +379,7 @@ section.skills.offset .progress {
 
 section.portfolio {
     text-align: center;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
 }
 
 section.portfolio>nav {
@@ -428,27 +428,30 @@ section.portfolio>nav .bar-inner {
 
 section.portfolio>nav .bar.state-1 .bar-inner {
     margin-left: 0;
-    width: 50px;
+    width: 40px;
 }
 
 section.portfolio>nav .bar.state-2 .bar-inner {
     margin-left: 65px;
-    width: 50px;
+    width: 40px;
 }
 
 section.portfolio>nav .bar.state-3 .bar-inner {
-    margin-left: 140px;
-    width: 96px;
+    margin-left: 145px;
+    width: 40px;
 }
 
-
-/* 绝对定位的元素不在文档流里。div的高度需要手动指定 */
-
-section.portfolio .works {
-    position: relative;
+.window {
+    width: 275px;
+    margin: 20px auto;
+    overflow: hidden;
 }
 
-section.portfolio .works .big,
-section.portfolio .works .small {
-    position: absolute;
+.images {
+    display: flex;
+    transition: all 0.4s;
+}
+
+.images>img {
+    width: 100%;
 }
