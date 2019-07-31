@@ -1,26 +1,19 @@
 ! function() {
     //平滑滚动
-    let liTags = document.querySelectorAll('nav.menu > ul > li');
-    for (let i = 0; i < liTags.length; i++) {
-        liTags[i].onmouseenter = function(e) {
-            e.currentTarget.classList.add('active');
-        }
-        liTags[i].onmouseleave = function(e) {
-            e.currentTarget.classList.remove('active');
-        }
-    }
-    //锚点
-    let aTags = document.querySelectorAll('nav.menu > ul > li > a');
-
-    function animate(time) {
-        requestAnimationFrame(animate);
-        TWEEN.update(time);
-    }
-    requestAnimationFrame(animate);
-    for (let i = 0; i < aTags.length; i++) {
-        aTags[i].onclick = function(e) {
-            e.preventDefault();
-            let top = document.querySelector(e.currentTarget.getAttribute('href')).offsetTop;
+    var view = document.querySelector('nav.menu');
+    var controller = {
+        view: null,
+        aTags: null,
+        liTags: null,
+        initAnimation: function() {
+            function animate(time) {
+                requestAnimationFrame(animate);
+                TWEEN.update(time);
+            }
+            requestAnimationFrame(animate);
+        },
+        scrollToElement: function(element) {
+            let top = element.offsetTop;
             let currentTop = window.scrollY;
             let targetTop = top - 70;
             let s = targetTop - currentTop;
@@ -39,6 +32,35 @@
                 .onUpdate(() => {
                     window.scrollTo(0, coords.y)
                 }).start();
+        },
+        bindEvents: function() {
+            //锚点
+            let aTags = document.querySelectorAll('nav.menu > ul > li > a');
+            let liTags = this.view.querySelectorAll('nav.menu > ul > li');
+
+            for (let i = 0; i < aTags.length; i++) {
+                aTags[i].onclick = (e) => {
+                    e.preventDefault();
+                    let href = e.currentTarget.getAttribute('href');
+                    let element = document.querySelector(href);
+                    this.scrollToElement(element)
+                }
+            }
+            for (let i = 0; i < liTags.length; i++) {
+                liTags[i].onmouseenter = function(e) {
+                    e.currentTarget.classList.add('active');
+                }
+                liTags[i].onmouseleave = function(e) {
+                    e.currentTarget.classList.remove('active');
+                }
+            }
+        },
+        init: function(view) {
+            this.view = view
+            this.initAnimation()
+            this.bindEvents()
         }
     }
+
+    controller.init(view);
 }.call()
